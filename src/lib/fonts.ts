@@ -1,4 +1,4 @@
-import { Barlow, Montserrat, Quicksand } from "next/font/google";
+import { Barlow, Quicksand } from "next/font/google";
 
 export const primary = Barlow({
   subsets: ["latin"],
