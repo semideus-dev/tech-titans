@@ -4,7 +4,7 @@
 import { ICategory } from "@/lib/db/models/category.model";
 
 // REACT
-import { startTransition, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 
 // UI
 import {
@@ -14,17 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { getCategories } from "@/lib/actions/category.actions";
 
 interface DropdownProps {
   value?: string;
@@ -33,9 +23,14 @@ interface DropdownProps {
 
 export default function Dropdown({ value, onChange }: DropdownProps) {
   const [categories, setCategories] = useState<ICategory[]>([]);
-  const [newCategory, setNewCategory] = useState("");
 
-  async function handleAddCategory() {}
+  useEffect(() => {
+    startTransition(async () => {
+      const categories = await getCategories();
+      console.log(categories);
+      setCategories(categories as ICategory[]);
+    });
+  }, []);
 
   return (
     <Select onOpenChange={onChange} defaultValue={value}>
@@ -48,29 +43,6 @@ export default function Dropdown({ value, onChange }: DropdownProps) {
             {category.name}
           </SelectItem>
         ))}
-        {/* <Dialog>
-          <DialogTrigger className="w-full rounded-md px-3 py-2 text-left text-primary hover:bg-neutral-800">
-            + Add new category
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>new category</DialogTitle>
-              <DialogDescription>
-                Give a new unique name for your category.
-              </DialogDescription>
-            </DialogHeader>
-            <Input
-              type="text"
-              onChange={(e) => setNewCategory(e.target.value)}
-            />
-            <DialogFooter>
-              <Button variant="destructive">Cancel</Button>
-              <Button onClick={() => startTransition(handleAddCategory)}>
-                Add
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog> */}
       </SelectContent>
     </Select>
   );

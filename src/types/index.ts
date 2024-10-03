@@ -90,7 +90,7 @@ export type Event = {
   sponser: string;
   category: {
     _id: string;
-    title: string;
+    name: string;
   };
 };
 
