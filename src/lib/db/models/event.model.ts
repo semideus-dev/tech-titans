@@ -42,7 +42,6 @@ const EventSchema = new Schema({
   sponser: {
     type: String,
   },
-
   isFree: {
     type: Boolean,
     default: false,

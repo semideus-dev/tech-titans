@@ -27,8 +27,8 @@ export type CreateEventParams = {
     endDateTime: Date;
     categoryId: string;
     price: string;
-    isFree: boolean;
     sponser: string;
+    isFree: boolean;
   };
   path: string;
 };
@@ -45,8 +45,8 @@ export type UpdateEventParams = {
     endDateTime: Date;
     categoryId: string;
     price: string;
-    isFree: boolean;
     sponser: string;
+    isFree: boolean;
   };
   path: string;
 };

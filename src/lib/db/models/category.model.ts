@@ -3,11 +3,11 @@ import { model, models, Schema } from "mongoose";
 
 export interface ICategory extends Document {
   _id: string;
-  title: string;
+  name: string;
 }
 
 const CategorySchema = new Schema({
-  title: {
+  name: {
     type: String,
     required: true,
   },

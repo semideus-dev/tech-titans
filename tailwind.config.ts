@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+import { withUt } from "uploadthing/tw";
 
-const config: Config = {
+export default withUt({
   darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -29,8 +30,8 @@ const config: Config = {
           foreground: "#09090b",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#262626",
+          foreground: "#a3a3a3",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -40,7 +41,7 @@ const config: Config = {
           DEFAULT: "#f43f5e",
           foreground: "#fff1f2",
         },
-        border: "#262626",
+        border: "#2e2e2e",
         input: "#1d1d1d",
         ring: "hsl(var(--ring))",
         chart: {
@@ -54,5 +55,4 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
-export default config;
+});

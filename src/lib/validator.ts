@@ -1,0 +1,34 @@
+// ZOD
+import * as z from "zod";
+
+export const eventDefaultValues = {
+  title: "",
+  description: "",
+  location: "",
+  imageUrl: "",
+  startDateTime: new Date(),
+  endDateTime: new Date(),
+  categoryId: "",
+  price: "",
+  isFree: false,
+  sponser: "",
+};
+
+export const eventFormSchema = z.object({
+  title: z.string().min(1, { message: "Title is required." }),
+  description: z
+    .string()
+    .min(10, { message: "Description is too short." })
+    .max(500, { message: "Description is exceeding character limit of 500." }),
+  eventLocation: z
+    .string()
+    .min(1, { message: "Location is required." })
+    .max(100, { message: "Description is exceeding character limit of 500." }),
+  imageUrl: z.string().min(1, { message: "Image is required." }),
+  sponser: z.string(),
+  startDateTime: z.date().min(new Date()),
+  endDateTime: z.date().min(new Date()),
+  categoryId: z.string(),
+  price: z.string(),
+  isFree: z.boolean(),
+});
