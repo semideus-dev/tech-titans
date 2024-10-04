@@ -75,7 +75,10 @@ export default function EventForm({ userId, type }: EventFormProps) {
               <FormItem>
                 <FormLabel>Category</FormLabel>
                 <FormControl>
-                  <Dropdown onChange={field.onChange} value={field.value} />
+                  <Dropdown
+                    onChangeHandler={field.onChange}
+                    value={field.value}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -111,7 +114,6 @@ export default function EventForm({ userId, type }: EventFormProps) {
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="eventLocation"
@@ -132,7 +134,6 @@ export default function EventForm({ userId, type }: EventFormProps) {
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="sponser"

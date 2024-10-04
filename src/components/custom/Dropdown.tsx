@@ -18,22 +18,22 @@ import { getCategories } from "@/lib/actions/category.actions";
 
 interface DropdownProps {
   value?: string;
-  onChange?: () => void;
+  onChangeHandler?: () => void;
 }
 
-export default function Dropdown({ value, onChange }: DropdownProps) {
+export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
   const [categories, setCategories] = useState<ICategory[]>([]);
 
   useEffect(() => {
     startTransition(async () => {
-      const categories = await getCategories();
+      const categoryList = await getCategories();
       console.log(categories);
-      setCategories(categories as ICategory[]);
+      categoryList && setCategories(categoryList as ICategory[]);
     });
   }, []);
 
   return (
-    <Select onOpenChange={onChange} defaultValue={value}>
+    <Select onValueChange={onChangeHandler} defaultValue={value}>
       <SelectTrigger>
         <SelectValue placeholder="Select a category" />
       </SelectTrigger>
