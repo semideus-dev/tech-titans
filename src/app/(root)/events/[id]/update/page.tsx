@@ -24,7 +24,7 @@ export default function Update() {
         <span className="mr-2 text-primary">update</span> event
       </h1>
       <br />
-      <EventForm userId={userId} type="Create" />
+      <EventForm userId={userId} type="Update" />
     </section>
   );
 }

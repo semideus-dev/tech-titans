@@ -28,7 +28,7 @@ export default function CreateEvent() {
         location, and description.
       </span>
       <br />
-      <EventForm userId={userId} type="Update" />
+      <EventForm userId={userId} type="Create" />
     </section>
   );
 }
