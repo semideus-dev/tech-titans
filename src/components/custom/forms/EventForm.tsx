@@ -14,8 +14,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 // UI
-import Dropdown from "@/components/custom/Dropdown";
-import FileUploader from "@/components/custom/FileUploader";
+import Dropdown from "@/components/custom/forms/elements/Dropdown";
+import FileUploader from "@/components/custom/forms/elements/FileUploader";
 
 import { Icon } from "@iconify/react";
 import { Input } from "@/components/ui/input";

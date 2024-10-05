@@ -19,7 +19,9 @@ export const eventFormSchema = z.object({
   description: z
     .string()
     .min(10, { message: "Description is too short." })
-    .max(500, { message: "Description is exceeding character limit of 500." }),
+    .max(2500, {
+      message: "Description is exceeding character limit of 2500.",
+    }),
   eventLocation: z.string().min(1, { message: "Location is required." }),
   imageUrl: z.string().min(1, { message: "Image is required." }),
   sponser: z.string(),

@@ -22,7 +22,9 @@ export default function Navbar() {
   return (
     <nav className="fixed z-10 flex w-screen items-center justify-center">
       <div className="m-2 flex w-full items-center justify-between space-x-4 rounded-lg border bg-background px-2 md:w-fit md:justify-center">
-        <Image src="/assets/image.png" alt="logo" width={40} height={40} />
+        <Link href="/">
+          <Image src="/assets/image.png" alt="logo" width={40} height={40} />
+        </Link>
         <div className="hidden items-center md:flex">
           <Link className="navlink" href="/about">
             About
